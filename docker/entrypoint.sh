@@ -29,25 +29,25 @@ STYLES_OSM=${STYLES_OSM:-colorful,graybeard,eclipse,neutrino,shadow}
 
 # compile all requested styles into a single comma-separated string
 ALL_STYLES=$STYLES_OSM
-if [ -n "$SATELLITE_ENABLE" ] ; then
+if [ -n "$ENABLE_SATELLITE" ] ; then
   # Append satellite if enabled
   ALL_STYLES="${ALL_STYLES},satellite"
 fi
 
 # optional flags
 ENABLE_LOCALIZATION=$(if [ -n "$ENABLE_LOCALIZATION" ] ; then echo "-l" ; fi)
-SATELLITE_HILLSHADE_ENABLE=$(if [ -n "$SATELLITE_HILLSHADE_ENABLE" ] ; then echo "-h" ; fi)
-SATELLITE_TERRAIN_ENABLE=$(if [ -n "$SATELLITE_TERRAIN_ENABLE" ] ; then echo "-t" ; fi)
+ENABLE_SATELLITE_HILLSHADE=$(if [ -n "$ENABLE_SATELLITE_HILLSHADE" ] ; then echo "-h" ; fi)
+ENABLE_SATELLITE_TERRAIN=$(if [ -n "$ENABLE_SATELLITE_TERRAIN" ] ; then echo "-t" ; fi)
 
 echo "SERVER_PUBLIC_URL: $SERVER_PUBLIC_URL"
 echo "ALL_STYLES: $ALL_STYLES"
-echo "OPTIONS: ${ENABLE_LOCALIZATION} ${SATELLITE_HILLSHADE_ENABLE} ${SATELLITE_TERRAIN_ENABLE}"
+echo "OPTIONS: ${ENABLE_LOCALIZATION} ${ENABLE_SATELLITE_HILLSHADE} ${ENABLE_SATELLITE_TERRAIN}"
 
 echo "Generating styles..."
 cd /app/style_builder || exit 1
 
 # Build JSON style files and styles.json file
-npx tsx /app/style_builder/main.ts -d /app/styles ${ENABLE_LOCALIZATION} ${SATELLITE_HILLSHADE_ENABLE} ${SATELLITE_TERRAIN_ENABLE} "${SERVER_PUBLIC_URL}" "${ALL_STYLES}"
+npx tsx /app/style_builder/main.ts -d /app/styles ${ENABLE_LOCALIZATION} ${ENABLE_SATELLITE_HILLSHADE} ${ENABLE_SATELLITE_TERRAIN} "${SERVER_PUBLIC_URL}" "${ALL_STYLES}"
 
 # resume server process
 wait $!

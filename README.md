@@ -36,7 +36,7 @@ services:
 ```
 
 ## Download tiles
-Now you need to download the tile file from [Versatiles](https://download.versatiles.org/) server. To achieve this we will use a temporary docker container, but you can use any alternative download method.
+Now you need to download the tile file from [Versatiles](https://download.versatiles.org/) server. To achieve this we will use a temporary docker container, but you can use any alternative download method ([see Versatiles doc](https://docs.versatiles.org/guides/download_tiles.html)).
 
 If do not want to host the entire planet we recommend to use the [Versatiles Setup Server Tool](https://versatiles.org/tools/setup_server), answer until a map appear, select the area you want to download and use the computed download command. Mind to store file as `./data/osm.versatiles`. 
 
