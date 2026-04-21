@@ -6,7 +6,7 @@ The built server aim to have very high-availability and automatic scalability th
 
 If you just need a simple map server for yourself or a fixed amount of users you might probably use the Quickstart procedure at the root of this project. 
 
-## ☁️ Clever cloud setup
+## ☁️ Setup
 
 ### Create a **Docker application**
 You can use XS instances or bigger, from 1 to whatever you need.
@@ -87,4 +87,11 @@ ENABLE_LOCALIZATION="true"
 ENABLE_SATELLITE="true"
 SERVER_PUBLIC_URL="https://DOMAIN_NAME"
 VERSATILES_FILES="https://BUCKET_NAME.cellar-c2.services.clever-cloud.com/osm.versatiles https://BUCKET_NAME.cellar-c2.services.clever-cloud.com/satellite.versatiles"
+```
+
+### Optional env variables
+```env
+CC_DOCKER_FIXED_CIDR_V6="true"
+CC_HEALTH_CHECK_PATH="/styles.json"
+CC_PREVENT_LOGSCOLLECTION=true
 ```
