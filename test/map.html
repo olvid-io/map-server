@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic MapLibre Viewer</title>
+
+    <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+
+    <style>
+      body { margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+      #map { position: absolute; top: 0; bottom: 0; width: 100%; background: #eee; }
+
+      .control-panel {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        z-index: 10;
+        width: 280px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .section { display: flex; flex-direction: column; gap: 5px; }
+      label { font-size: 12px; font-weight: bold; color: #555; text-transform: uppercase; }
+
+      input, select, button {
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+      }
+
+      button {
+        background-color: #0078ff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      button:hover { background-color: #0056b3; }
+
+      #status { font-size: 12px; color: #666; }
+      .error { color: #d32f2f !important; }
+    </style>
+</head>
+<body>
+
+<div class="control-panel">
+    <div class="section">
+        <label for="server-url">Map Server URL</label>
+        <input type="text" id="server-url" placeholder="https://map.example.org">
+        <button id="connect-btn">Connect & Load Styles</button>
+    </div>
+
+    <div class="section">
+        <label for="style-selector">Available Styles</label>
+        <select id="style-selector">
+            <option value="">-- Connect to server first --</option>
+        </select>
+    </div>
+
+    <div id="status">Ready.</div>
+</div>
+
+<div id="map"></div>
+
+<script>
+    const serverInput = document.getElementById('server-url');
+    const connectBtn = document.getElementById('connect-btn');
+    const styleSelector = document.getElementById('style-selector');
+    const statusText = document.getElementById('status');
+
+    let map;
+
+    /**
+     * Fetches the /styles.json from the provided server URL
+     */
+    async function fetchStyles(baseUrl) {
+        // Clean URL trailing slash
+        const cleanUrl = baseUrl.replace(/\/$/, "");
+        const endpoint = `${cleanUrl}/styles.json`;
+
+        statusText.innerText = "Connecting...";
+        statusText.classList.remove('error');
+
+        try {
+            const response = await fetch(endpoint);
+            if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+
+            const jsonStyles = await response.json();
+            // manually remove language placeholder
+            jsonStyles.forEach((style) => {style.url = style.url.replace("[LANG]", "")})
+            updateStyleDropdown(jsonStyles);
+            statusText.innerText = `Found ${jsonStyles.length} styles.`;
+
+            // Auto-load the first style if map isn't initialized or style changed
+            if (jsonStyles.length > 0) {
+                applyStyle(jsonStyles[0].url);
+            }
+        } catch (err) {
+            statusText.innerText = "Error: Could not fetch styles.json";
+            statusText.classList.add('error');
+            console.error(err);
+        }
+    }
+
+    /**
+     * Updates the UI dropdown with the list of style URLs
+     */
+    function updateStyleDropdown(styles) {
+        styleSelector.innerHTML = ''; // Clear current options
+
+        styles.forEach(jsonStyle => {
+            const opt = document.createElement('option');
+            opt.value = jsonStyle.url;
+            console.log(opt.value);
+            opt.textContent = jsonStyle.id;
+            styleSelector.appendChild(opt);
+        });
+    }
+
+    /**
+     * Updates the map style
+     */
+    function applyStyle(styleUrl) {
+        console.log("Apply style:", styleUrl);
+        if (!map) {
+            // First time initialization
+            map = new maplibregl.Map({
+                container: 'map',
+                style: styleUrl,
+                center: [0, 20],
+                zoom: 2
+            });
+            map.addControl(new maplibregl.NavigationControl(), 'top-right');
+        } else {
+            // Update existing map
+            map.setStyle(styleUrl);
+        }
+    }
+
+    // Event Listeners
+    connectBtn.addEventListener('click', () => {
+        fetchStyles(serverInput.value);
+    });
+
+    styleSelector.addEventListener('change', (e) => {
+        if (e.target.value) applyStyle(e.target.value);
+    });
+
+    // Initial load with default value
+    fetchStyles(serverInput.value);
+</script>
+
+</body>
+</html>
