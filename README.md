@@ -2,20 +2,20 @@
 
 This repository contains the source code for a custom Docker image and deployment scripts designed to host a tile server compatible with Olvid location sharing.
 
-This repository aim is to let you easily host a map tile server, that you can use in Olvid for the location sharing feature. But this server is compatible with any MapLibre application (nodejs or native), and might be used for different use cases.
+This repository aims at letting you easily host such a map server for use within Olvid, but this server is compatible with any MapLibre application (Node.js or native), and could also be used for other use cases.
 
-⚠ Note: Currently, only the Olvid application for Android supports the use of a customized map server.
+⚠ Note: Currently, only the Android version of Olvid supports custom map servers.
 
 # 🚀 Quickstart
 
 ## Requirements
 
-Hosting the world map in vector format uses 60GB of disk space, but it is possible to select only a specific region to reduce the required disk space.
-The server only serves a static file and therefore requires very few processor resources and memory.
+Hosting the world map in vector format takes up 60GB of disk space, but it is possible to select only a specific region of the world to reduce the required disk space.
+The server only serves a static file and therefor requires very little processing and memory.
 
-We recommand to use docker to run the *versatiles* server, but you can run a versatile server locally and check how we build the json style files in *./docker/style-builder*.
+We recommand using docker to run the *versatiles* server, but you can run a versatile server locally and check how we build the JSON style files in *./docker/style-builder*.
 
-If you need to build a large scalable server you can see how we build our production server in `./clever-cloud`.
+If you need to build a large scalable server, you can see how we build our production server in `./clever-cloud`.
 
 ## Setup
 
@@ -65,10 +65,59 @@ map.example.org {
 
 ## Setup in Olvid
 
-[//]: # (- TODO )
-To use your custom server in Android Application: https://map.example.org/styles.json
-- go to settings
-- use a configuration link
+In order to use your custom map server inside Olvid, you need to expose it on the internet, in HTTPS, with a valid certificate that the Android OS will accept ([Let's Encrypt](https://letsencrypt.org/) certificates work very well). Then, configure Olvid to use this map server.
+
+You have two options:
+- **single map style**: you need to point Olvid directly to the URL of the JSON style file,
+- **multiple styles**: this lets you choose between different map styles directly within Olvid.
+
+### Configuring a multi-style Olvid JSON
+
+Multi-style Olvid JSON files have the following structure:
+```json
+[
+ {"id": "colorful",
+  "name": {
+   "en": "Colorful",
+   "fr": "Coloré"
+  },
+  "url": "https://map.example.org/colorful[LANG].json"
+ },
+ {"id": "eclipse",
+  "name": {
+   "en": "Eclipse",
+   "fr": "Éclipse"
+  },
+  "url": "https://map.example.org/eclipse[LANG].json"
+ },
+ {"id": "satellite",
+  "name": {
+   "en": "Satellite",
+   "fr": "Satellite"
+  },
+  "url": "https://map.example.org/satellite[LANG].json"
+ }
+]
+```
+
+This is a JSON list of object that each contain:
+- an `id` (mandatory): this is how Olvid internally identifies which style to use,
+- a `name` map (optional): this is how the different styles will be shown inside Olvid. If no `name` map is present, the `id` is used as a fallback,
+- the `url` of the style file. This url may contain `[LANG]` tag which is then replaced by the language used inside the app, restricted to languages present in the `name` map. In the example above, both `colorful_fr.json` and `colorful_en.json` styles must exist on the server. For users with a different language, `en` is used as a fallback. This allows having different localized maps depending on your language preference. Omit the `[LANG]` tag if you do not want to use localized maps.
+
+### Configuring a custom map server within Olvid for Android
+
+Within Olvid you have the choice between different map providers:
+- OpenStreetMap, on servers operated by Olvid,
+- Google Maps,
+- no map provider (only GPS coordinates are shared),
+- a custom OpenStreetMap server.
+
+You can choose which provider to use by going into Olvid's: Settings > Location sharing > Integration with a map provider. This option can also be changed by long pressing a location you sent or received from a contact.
+
+When selecting custom OpenStreetMap you simply need to enter the URL of your single/multiple style JSON file and the next map you open in Olvid will use your custom style. If Olvid fails to load your style (typically, the wrong URL or a bad file format), an error message will be shown.
+
+In order to easily configure your app, or to share your custom map server with friends, you can also generate a "setting URL" that allows to configure the map provider by scanning a QR code. Visit our [Settings generator](https://olvid.io/settings/) and simply enter your style url in Location sharing > Map provider integration.
 
 # ⚙️ Configuration
 ## Environment
