@@ -9,7 +9,7 @@
     <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
 
     <style>
-      body { margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+      body { margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; overflow: hidden; }
       #map { position: absolute; top: 0; bottom: 0; width: 100%; background: #eee; }
 
       .control-panel {
@@ -28,13 +28,17 @@
       }
 
       .section { display: flex; flex-direction: column; gap: 5px; }
+      .row { display: flex; gap: 8px; }
+      .row button { flex: 1; }
+
       label { font-size: 12px; font-weight: bold; color: #555; text-transform: uppercase; }
 
-      input, select, button {
+      input, select, button, textarea {
         padding: 8px;
         border-radius: 4px;
         border: 1px solid #ccc;
         font-size: 14px;
+        font-family: inherit;
       }
 
       button {
@@ -46,9 +50,56 @@
       }
 
       button:hover { background-color: #0056b3; }
+      button.secondary { background-color: #6c757d; }
+      button.secondary:hover { background-color: #5a6268; }
 
       #status { font-size: 12px; color: #666; }
       .error { color: #d32f2f !important; }
+
+      /* Live Coordinate HUD */
+      #hud {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.9);
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-family: monospace;
+        font-size: 12px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      /* Style JSON Inspector Panel */
+      #editor-panel {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        bottom: 15px;
+        width: 400px;
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        z-index: 20;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition: transform 0.3s ease;
+      }
+      #editor-panel.hidden {
+        transform: translateX(120%);
+      }
+      #json-textarea {
+        flex-grow: 1;
+        font-family: monospace;
+        font-size: 12px;
+        white-space: pre;
+        overflow: auto;
+        resize: none;
+      }
     </style>
 </head>
 <body>
@@ -67,35 +118,71 @@
         </select>
     </div>
 
+    <div class="section">
+        <label>Tools</label>
+        <div class="row">
+            <button id="teleport-btn" title="Go to a random city">🎲 Teleport</button>
+            <button id="edit-style-btn" title="Live edit the JSON">📝 Edit JSON</button>
+        </div>
+    </div>
+
     <div id="status">Ready.</div>
+</div>
+
+<div id="hud">Z: 0.0 | P: 0° | B: 0° | Lat: 0.0000 | Lng: 0.0000</div>
+
+<div id="editor-panel" class="hidden">
+    <label>Live Style JSON Editor</label>
+    <textarea id="json-textarea" spellcheck="false"></textarea>
+    <div class="row">
+        <button id="apply-json-btn">Apply Changes</button>
+        <button id="close-json-btn" class="secondary">Close</button>
+    </div>
 </div>
 
 <div id="map"></div>
 
 <script>
+    // UI Elements
     const serverInput = document.getElementById('server-url');
     const connectBtn = document.getElementById('connect-btn');
     const styleSelector = document.getElementById('style-selector');
     const statusText = document.getElementById('status');
+    const hud = document.getElementById('hud');
+    const editorPanel = document.getElementById('editor-panel');
+    const jsonTextarea = document.getElementById('json-textarea');
 
     let map;
 
-    // Read URL parameter on page load ---
+    // --- State Management (URL & LocalStorage) ---
+    const savedState = JSON.parse(localStorage.getItem('mapViewerState')) || {};
+
+    // Check URL parameters first, fallback to local storage
     const urlParams = new URLSearchParams(window.location.search);
-    const urlParam = urlParams.get('url');
-    if (urlParam) {
-        serverInput.value = urlParam;
+    let currentUrl = urlParams.get('url') || savedState.url || "";
+
+    if (currentUrl) {
+        serverInput.value = currentUrl;
     }
 
-    // Update browser URL dynamically ---
     function updateUrlParameter(url) {
         const newUrl = new URL(window.location);
-        if (url) {
-            newUrl.searchParams.set('url', url);
-        } else {
-            newUrl.searchParams.delete('url');
-        }
+        if (url) newUrl.searchParams.set('url', url);
+        else newUrl.searchParams.delete('url');
         window.history.pushState({}, '', newUrl);
+
+        // Save to local storage as well
+        savedState.url = url;
+        localStorage.setItem('mapViewerState', JSON.stringify(savedState));
+    }
+
+    function saveCameraState() {
+        if (!map) return;
+        savedState.center = map.getCenter().toArray();
+        savedState.zoom = map.getZoom();
+        savedState.pitch = map.getPitch();
+        savedState.bearing = map.getBearing();
+        localStorage.setItem('mapViewerState', JSON.stringify(savedState));
     }
 
     /**
@@ -103,20 +190,15 @@
      */
     async function fetchStyles(inputUrl) {
         if (!inputUrl) return;
+        updateUrlParameter(inputUrl);
 
-        updateUrlParameter(inputUrl); // Save to URL params for sharing
-
-        // Smart endpoint detection
         let endpoint = inputUrl;
         try {
             const parsed = new URL(inputUrl);
-            // If it's a bare domain/path without a file extension or query params, assume it's a server base and append /styles.json
             if (!parsed.pathname.endsWith('.json') && parsed.search === '') {
                 endpoint = inputUrl.replace(/\/$/, "") + '/styles.json';
             }
-        } catch (e) {
-            console.warn("Invalid URL format entered.");
-        }
+        } catch (e) { console.warn("Invalid URL format"); }
 
         statusText.innerText = "Connecting...";
         statusText.classList.remove('error');
@@ -124,42 +206,30 @@
         try {
             const response = await fetch(endpoint);
             if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
-
             const data = await response.json();
 
             if (Array.isArray(data)) {
-                // Handle as a list of styles (styles.json)
-                data.forEach((style) => {
-                    if (style.url) style.url = style.url.replace("[LANG]", "");
-                });
+                data.forEach((style) => { if (style.url) style.url = style.url.replace("[LANG]", ""); });
                 updateStyleDropdown(data);
                 statusText.innerText = `Found ${data.length} styles.`;
-
-                if (data.length > 0) {
-                    applyStyle(data[0].url);
-                }
+                if (data.length > 0) applyStyle(data[0].url);
             } else if (typeof data === 'object' && data.version) {
-                // Handle as a single style.json file
                 const styleName = data.name || "Custom Single Style";
                 updateStyleDropdown([{ id: styleName, url: endpoint }]);
                 statusText.innerText = `Loaded single style.`;
                 applyStyle(endpoint);
             } else {
-                throw new Error("Unrecognized JSON format (not a valid style or style list).");
+                throw new Error("Unrecognized JSON format.");
             }
-
         } catch (err) {
-            statusText.innerText = "Error: Could not fetch map data.";
+            statusText.innerText = "Error fetching map data.";
             statusText.classList.add('error');
             console.error(err);
         }
     }
 
-    /**
-     * Updates the UI dropdown with the list of style URLs
-     */
     function updateStyleDropdown(styles) {
-        styleSelector.innerHTML = ''; // Clear current options
+        styleSelector.innerHTML = '';
         styles.forEach(jsonStyle => {
             const opt = document.createElement('option');
             opt.value = jsonStyle.url;
@@ -169,39 +239,79 @@
     }
 
     /**
-     * Updates the map style
+     * Updates or creates the map instance
      */
     function applyStyle(styleUrl) {
-        console.log("Apply style:", styleUrl);
         if (!map) {
-            // First time initialization
             map = new maplibregl.Map({
                 container: 'map',
                 style: styleUrl,
-                center: [0, 20],
-                zoom: 2
+                center: savedState.center || [0, 20],
+                zoom: savedState.zoom || 2,
+                pitch: savedState.pitch || 0,
+                bearing: savedState.bearing || 0
             });
             map.addControl(new maplibregl.NavigationControl(), 'top-right');
+
+            // Map Events for HUD and Memory
+            map.on('move', () => {
+                const center = map.getCenter();
+                hud.innerText = `Z: ${map.getZoom().toFixed(1)} | P: ${map.getPitch().toFixed(0)}° | B: ${map.getBearing().toFixed(0)}° | Lat: ${center.lat.toFixed(4)} | Lng: ${center.lng.toFixed(4)}`;
+            });
+            map.on('moveend', saveCameraState);
         } else {
-            // Update existing map
             map.setStyle(styleUrl);
         }
     }
 
-    // Event Listeners
-    connectBtn.addEventListener('click', () => {
-        fetchStyles(serverInput.value);
+    // --- Interactive Features ---
+    // 1. Random Teleporter
+    const teleportCities = [
+        { name: "Paris", lngLat: [2.3522, 48.8566] },
+        { name: "New York", lngLat: [-74.0060, 40.7128] },
+        { name: "Tokyo", lngLat: [139.6917, 35.6895] },
+        { name: "Sydney", lngLat: [151.2093, -33.8688] },
+        { name: "Rio de Janeiro", lngLat: [-43.1729, -22.9068] },
+        { name: "Cape Town", lngLat: [18.4232, -33.9249] }
+    ];
+
+    document.getElementById('teleport-btn').addEventListener('click', () => {
+        if (!map) return;
+        const target = teleportCities[Math.floor(Math.random() * teleportCities.length)];
+        statusText.innerText = `Teleporting to ${target.name}...`;
+        map.flyTo({ center: target.lngLat, zoom: 12, duration: 0 });
     });
 
-    serverInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') fetchStyles(serverInput.value);
+    // 2. Style JSON Editor
+    document.getElementById('edit-style-btn').addEventListener('click', () => {
+        if (!map) return;
+        // getStyle() returns the fully parsed current map style
+        jsonTextarea.value = JSON.stringify(map.getStyle(), null, 2);
+        editorPanel.classList.remove('hidden');
     });
 
-    styleSelector.addEventListener('change', (e) => {
-        if (e.target.value) applyStyle(e.target.value);
+    document.getElementById('close-json-btn').addEventListener('click', () => {
+        editorPanel.classList.add('hidden');
     });
 
-    // Initial load if an input value is present
+    document.getElementById('apply-json-btn').addEventListener('click', () => {
+        try {
+            const newStyle = JSON.parse(jsonTextarea.value);
+            map.setStyle(newStyle);
+            statusText.innerText = "Custom JSON applied successfully.";
+            statusText.classList.remove('error');
+        } catch (e) {
+            statusText.innerText = "Error: Invalid JSON format.";
+            statusText.classList.add('error');
+        }
+    });
+
+    // --- Core Listeners & Init ---
+    connectBtn.addEventListener('click', () => fetchStyles(serverInput.value));
+    serverInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') fetchStyles(serverInput.value); });
+    styleSelector.addEventListener('change', (e) => { if (e.target.value) applyStyle(e.target.value); });
+
+    // Auto-load if we have a URL from parameters or local storage
     if (serverInput.value) {
         fetchStyles(serverInput.value);
     }
