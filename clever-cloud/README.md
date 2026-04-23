@@ -91,7 +91,7 @@ VERSATILES_FILES="https://BUCKET_NAME.cellar-c2.services.clever-cloud.com/osm.ve
 
 ### Optional env variables
 ```env
-CC_DOCKER_FIXED_CIDR_V6="true"
+CC_DOCKER_FIXED_CIDR_V6="fd00::/80"
 CC_HEALTH_CHECK_PATH="/styles.json"
 CC_PREVENT_LOGSCOLLECTION=true
 ```
