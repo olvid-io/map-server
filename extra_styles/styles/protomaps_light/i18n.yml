@@ -1,0 +1,116 @@
+lang:
+    - &lang_double
+      - case
+      - - has
+        - name:{locale}
+      - - case
+        - - "=="
+          - - concat
+            - - get
+              - name:{locale}
+            - ''
+          - - concat
+            - - get
+              - name
+            - ''
+        - - get
+          - name:{locale}
+        - - format
+          - - get
+            - name:{locale}
+          - {}
+          - "\n"
+          - {}
+          - - get
+            - name
+          - 'font-scale': 0.8
+            'text-font': ['literal', ["Noto-Sans-Regular"]]
+      - - case
+        - - has
+          - name:latin
+        - - case
+          - - "=="
+            - - concat
+              - - get
+                - name:latin
+              - ''
+            - - concat
+              - - get
+                - name
+              - ''
+          - - get
+            - name
+          - - format
+            - - get
+              - name:latin
+            - {}
+            - "\n"
+            - {}
+            - - get
+              - name
+            - 'font-scale': 0.8
+              'text-font': ['literal', ["Noto-Sans-Regular"]]
+        - - get
+          - name
+    - &lang_locale
+      - case
+      - - has
+        - name:{locale}
+      - - get
+        - name:{locale}
+      - - get
+        - name
+
+languageFallbacks:
+  -
+    id: physical_line_waterway_label
+    lang:
+      *lang_locale
+  -
+    id: physical_point_peak
+    lang:
+      *lang_locale
+  -
+    id: roads_labels_minor
+    lang:
+      *lang_locale
+  -
+    id: physical_point_ocean
+    lang:
+      *lang_locale
+  -
+    id: physical_point_lakes
+    lang:
+      *lang_locale
+  -
+    id: roads_labels_major
+    lang:
+      *lang_locale
+  -
+    id: places_subplace
+    lang:
+      *lang_locale
+  -
+    id: places_locality
+    lang:
+      *lang_double
+  -
+    id: places_region
+    lang:
+      *lang_double
+  -
+    id: places_country
+    lang:
+      *lang_locale
+  -
+    id: poi_z16
+    lang:
+      *lang_locale
+  -
+    id: poi_z14
+    lang:
+      *lang_locale
+  -
+    id: poi_z15
+    lang:
+      *lang_locale

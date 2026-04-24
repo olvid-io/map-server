@@ -1,5 +1,5 @@
 import {colorful, graybeard, eclipse, neutrino, shadow, satellite, StyleBuilderOptions, SatelliteStyleOptions} from '@versatiles/style';
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import {exists, existsSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {program, Argument, Option} from "commander";
 
 /*
@@ -18,12 +18,14 @@ program
 	.addOption(new Option("-l, --language", "enable language variants for styles [fr,en] and placeholders in list").default(false))
 	.addOption(new Option("-h, --hillshade", "Enable hillshade layer for satellite style").default(false))
 	.addOption(new Option("-t, --terrain", "Enable terrain layer for satellite style").default(false))
+	.addOption(new Option("-e, --extra <string>", "Filepath to a valid styles.json file to concatenate with generated styles. Must be a valid json list."))
 	.action(async (serverUrl: string, stylesArg: string) => {
 		const options = program.opts();
 		const outputDir: string = options.dir;
 		const enableLanguage: boolean = options.language;
 		const hillshade: boolean = options.hillshade;
 		const terrain: boolean = options.terrain;
+		const extraStylesFile: string = options.extra;
 
 		if (!existsSync(outputDir)) {
 			mkdirSync(outputDir, { recursive: true });
@@ -104,6 +106,21 @@ program
 		// Write the consolidated styles.json file
 		const stylesListPath = `${outputDir}/styles.json`;
 		console.log(`Writing list: ${stylesListPath}`);
+		if (extraStylesFile) {
+			if (!existsSync(extraStylesFile)) {
+				console.error("Extra styles file not found:", extraStylesFile);
+			} else {
+				console.log("Found extra styles file:", extraStylesFile);
+				try {
+					const extraStylesList = JSON.parse(readFileSync(extraStylesFile, "utf8"));
+					for (const jsonStyle of extraStylesList) {
+						jsonStylesList.push(jsonStyle);
+					}
+				} catch (err) {
+					console.error(err);
+				}
+			}
+		}
 		writeFileSync(stylesListPath, JSON.stringify(jsonStylesList));
 	});
 

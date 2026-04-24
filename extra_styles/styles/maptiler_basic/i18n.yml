@@ -1,0 +1,92 @@
+lang:
+    - &lang_double
+      - case
+      - - has
+        - name:{locale}
+      - - case
+        - - "=="
+          - - concat
+            - - get
+              - name:{locale}
+            - ''
+          - - concat
+            - - get
+              - name
+            - ''
+        - - get
+          - name:{locale}
+        - - format
+          - - get
+            - name:{locale}
+          - {}
+          - "\n"
+          - {}
+          - - get
+            - name
+          - 'font-scale': 0.8
+            'text-font': ['literal', ["Noto-Sans-Regular"]]
+      - - case
+        - - has
+          - name:latin
+        - - case
+          - - "=="
+            - - concat
+              - - get
+                - name:latin
+              - ''
+            - - concat
+              - - get
+                - name
+              - ''
+          - - get
+            - name
+          - - format
+            - - get
+              - name:latin
+            - {}
+            - "\n"
+            - {}
+            - - get
+              - name
+            - 'font-scale': 0.8
+              'text-font': ['literal', ["Noto-Sans-Regular"]]
+        - - get
+          - name
+    - &lang_locale
+      - case
+      - - has
+        - name:{locale}
+      - - get
+        - name:{locale}
+      - - get
+        - name
+
+languageFallbacks:
+  -
+    id: poi_label
+    lang:
+      *lang_locale
+  -
+    id: airport-label
+    lang:
+      *lang_locale
+  -
+    id: road_major_label
+    lang:
+      *lang_locale
+  -
+    id: place_label_other
+    lang:
+      *lang_double
+  -
+    id: place_label_city
+    lang:
+      *lang_double
+  -
+    id: country_label-other
+    lang:
+      *lang_locale
+  -
+    id: country_label
+    lang:
+      *lang_locale

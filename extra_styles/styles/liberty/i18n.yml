@@ -1,0 +1,132 @@
+lang:
+    - &lang_double
+      - case
+      - - has
+        - name:{locale}
+      - - case
+        - - "=="
+          - - concat
+            - - get
+              - name:{locale}
+            - ''
+          - - concat
+            - - get
+              - name
+            - ''
+        - - get
+          - name:{locale}
+        - - format
+          - - get
+            - name:{locale}
+          - {}
+          - "\n"
+          - {}
+          - - get
+            - name
+          - 'font-scale': 0.8
+            'text-font': ['literal', ["Noto-Sans-Regular"]]
+      - - case
+        - - has
+          - name:latin
+        - - case
+          - - "=="
+            - - concat
+              - - get
+                - name:latin
+              - ''
+            - - concat
+              - - get
+                - name
+              - ''
+          - - get
+            - name
+          - - format
+            - - get
+              - name:latin
+            - {}
+            - "\n"
+            - {}
+            - - get
+              - name
+            - 'font-scale': 0.8
+              'text-font': ['literal', ["Noto-Sans-Regular"]]
+        - - get
+          - name
+    - &lang_locale
+      - case
+      - - has
+        - name:{locale}
+      - - get
+        - name:{locale}
+      - - get
+        - name
+
+languageFallbacks:
+  -
+    id: water_name_line
+    lang:
+      *lang_locale
+  -
+    id: water_name_point
+    lang:
+      *lang_locale
+  -
+    id: poi_z16
+    lang:
+      *lang_locale
+  -
+    id: poi_z15
+    lang:
+      *lang_locale
+  -
+    id: poi_z14
+    lang:
+      *lang_locale
+  -
+    id: poi_transit
+    lang:
+      *lang_locale
+  -
+    id: road_label
+    lang:
+      *lang_locale
+  -
+    id: road_shield
+    lang:
+      *lang_locale
+  -
+    id: place_other
+    lang:
+      "{name}"
+  -
+    id: place_village
+    lang:
+      *lang_double
+  -
+    id: place_town
+    lang:
+      *lang_double
+  -
+    id: place_city
+    lang:
+      *lang_double
+  -
+    id: state
+    lang:
+      *lang_locale
+  -
+    id: country_3
+    lang:
+      *lang_locale
+  -
+    id: country_2
+    lang:
+      *lang_locale
+  -
+    id: country_1
+    lang:
+      *lang_locale
+  -
+    id: continent
+    lang:
+      *lang_locale

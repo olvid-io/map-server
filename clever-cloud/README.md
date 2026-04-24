@@ -77,7 +77,7 @@ Replace DOMAIN_NAME and BUCKET_NAME.
 APP_FOLDER="./docker"
 ENABLE_LOCALIZATION="true"
 SERVER_PUBLIC_URL="https://DOMAIN_NAME"
-VERSATILES_FILES="https://BUCKET_NAME.cellar-c2.services.clever-cloud.com/osm.versatiles"
+DATA_FILES="https://BUCKET_NAME.cellar-c2.services.clever-cloud.com/osm.versatiles"
 ```
 
 If you downloaded `satellite.versatiles` and want to enable satellite style use this configuration instead (enable style, and add satellite in served files).
@@ -86,12 +86,12 @@ APP_FOLDER="./docker"
 ENABLE_LOCALIZATION="true"
 ENABLE_SATELLITE="true"
 SERVER_PUBLIC_URL="https://DOMAIN_NAME"
-VERSATILES_FILES="https://BUCKET_NAME.cellar-c2.services.clever-cloud.com/osm.versatiles https://BUCKET_NAME.cellar-c2.services.clever-cloud.com/satellite.versatiles"
+DATA_FILES="https://BUCKET_NAME.cellar-c2.services.clever-cloud.com/osm.versatiles https://BUCKET_NAME.cellar-c2.services.clever-cloud.com/satellite.versatiles"
 ```
 
 ### Optional env variables
 ```env
-CC_DOCKER_FIXED_CIDR_V6="fd00::/80"
+CC_DOCKER_FIXED_CIDR_V6="true"
 CC_HEALTH_CHECK_PATH="/styles.json"
 CC_PREVENT_LOGSCOLLECTION=true
 ```

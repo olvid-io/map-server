@@ -1,0 +1,116 @@
+lang:
+    - &lang_double
+      - case
+      - - has
+        - name:{locale}
+      - - case
+        - - "=="
+          - - concat
+            - - get
+              - name:{locale}
+            - ''
+          - - concat
+            - - get
+              - name
+            - ''
+        - - get
+          - name:{locale}
+        - - format
+          - - get
+            - name:{locale}
+          - {}
+          - "\n"
+          - {}
+          - - get
+            - name
+          - 'font-scale': 0.8
+            'text-font': ['literal', ["Noto-Sans-Regular"]]
+      - - case
+        - - has
+          - name:latin
+        - - case
+          - - "=="
+            - - concat
+              - - get
+                - name:latin
+              - ''
+            - - concat
+              - - get
+                - name
+              - ''
+          - - get
+            - name
+          - - format
+            - - get
+              - name:latin
+            - {}
+            - "\n"
+            - {}
+            - - get
+              - name
+            - 'font-scale': 0.8
+              'text-font': ['literal', ["Noto-Sans-Regular"]]
+        - - get
+          - name
+    - &lang_locale
+      - case
+      - - has
+        - name:{locale}
+      - - get
+        - name:{locale}
+      - - get
+        - name
+
+languageFallbacks:
+  -
+    id: water_name_lakeline
+    lang:
+      *lang_locale
+  -
+    id: water_name_way
+    lang:
+      *lang_locale
+  -
+    id: water_name_sea
+    lang:
+      *lang_locale
+  -
+    id: water_name_ocean
+    lang:
+      *lang_locale
+  -
+    id: road_label_primary
+    lang:
+      *lang_locale
+  -
+    id: road_label_secondary
+    lang:
+      *lang_locale
+  -
+    id: place_label_park
+    lang:
+      *lang_locale
+  -
+    id: place_label_village
+    lang:
+      *lang_double
+  -
+    id: place_label_city
+    lang:
+      *lang_double
+  -
+    id: place_label_town
+    lang:
+      *lang_double
+  -
+    id: place_state-label
+    lang:
+      *lang_double
+  -
+    id: place_label_country
+    lang:
+      *lang_locale
+  -
+    id: place_label_continent
+    lang:
+      *lang_locale

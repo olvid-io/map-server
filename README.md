@@ -28,7 +28,7 @@ services:
       - SERVER_PUBLIC_URL=http://localhost:8080
       - STYLES_OSM=colorful,graybeard,eclipse,neutrino,shadow
       - ENABLE_LOCALIZATION=true
-      - VERSATILES_FILES=/data/osm.versatiles
+      - DATA_FILES=/data/osm.versatiles
     volumes:
       - ./data:/data:ro
     ports:

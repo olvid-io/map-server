@@ -1,0 +1,5 @@
+{
+  "tileset_name": "planet_maptiler",
+  "sprites": "maptiler_toner/sprites/maptiler-toner-gl-style",
+  "fonts": "maptiler_toner/fonts"
+}

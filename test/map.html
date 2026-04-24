@@ -119,6 +119,15 @@
     </div>
 
     <div class="section">
+        <label for="lang-selector">Language</label>
+        <select id="lang-selector">
+            <option value="">Local (Default)</option>
+            <option value="_en">English</option>
+            <option value="_fr">French</option>
+        </select>
+    </div>
+
+    <div class="section">
         <label>Tools</label>
         <div class="row">
             <button id="teleport-btn" title="Go to a random city">🎲 Teleport</button>
@@ -147,6 +156,7 @@
     const serverInput = document.getElementById('server-url');
     const connectBtn = document.getElementById('connect-btn');
     const styleSelector = document.getElementById('style-selector');
+    const langSelector = document.getElementById('lang-selector');
     const statusText = document.getElementById('status');
     const hud = document.getElementById('hud');
     const editorPanel = document.getElementById('editor-panel');
@@ -163,6 +173,11 @@
 
     if (currentUrl) {
         serverInput.value = currentUrl;
+    }
+
+    // Restore language if previously saved
+    if (savedState.lang) {
+        langSelector.value = savedState.lang;
     }
 
     function updateUrlParameter(url) {
@@ -184,6 +199,12 @@
         savedState.bearing = map.getBearing();
         localStorage.setItem('mapViewerState', JSON.stringify(savedState));
     }
+
+    // Save language to state when changed
+    langSelector.addEventListener('change', () => {
+        savedState.lang = langSelector.value;
+        localStorage.setItem('mapViewerState', JSON.stringify(savedState));
+    });
 
     /**
      * Fetches either a styles.json list or a single style.json object
@@ -209,15 +230,16 @@
             const data = await response.json();
 
             if (Array.isArray(data)) {
-                data.forEach((style) => { if (style.url) style.url = style.url.replace("[LANG]", ""); });
-                updateStyleDropdown(data);
-                statusText.innerText = `Found ${data.length} styles.`;
-                if (data.length > 0) applyStyle(data[0].url);
+                // Use .flat() to handle nested arrays like the qwant example
+                const flatData = data.flat();
+                updateStyleDropdown(flatData);
+                statusText.innerText = `Found ${flatData.length} styles.`;
+                if (flatData.length > 0) applySelectedStyle();
             } else if (typeof data === 'object' && data.version) {
                 const styleName = data.name || "Custom Single Style";
                 updateStyleDropdown([{ id: styleName, url: endpoint }]);
                 statusText.innerText = `Loaded single style.`;
-                applyStyle(endpoint);
+                applySelectedStyle();
             } else {
                 throw new Error("Unrecognized JSON format.");
             }
@@ -233,15 +255,29 @@
         styles.forEach(jsonStyle => {
             const opt = document.createElement('option');
             opt.value = jsonStyle.url;
-            opt.textContent = jsonStyle.id || jsonStyle.name;
+            opt.textContent = typeof jsonStyle.name === 'object' ? (jsonStyle.name.en || jsonStyle.name.fr || jsonStyle.id) : (jsonStyle.name || jsonStyle.id);
             styleSelector.appendChild(opt);
         });
+    }
+
+    /**
+     * Replaces [LANG] based on dropdown and applies the style
+     */
+    function applySelectedStyle() {
+        const rawUrl = styleSelector.value;
+        if (!rawUrl) return;
+
+        const langSuffix = langSelector.value;
+        const finalUrl = rawUrl.replace("[LANG]", langSuffix);
+
+        applyStyle(finalUrl);
     }
 
     /**
      * Updates or creates the map instance
      */
     function applyStyle(styleUrl) {
+        console.log("apply style:", styleUrl);
         if (!map) {
             map = new maplibregl.Map({
                 container: 'map',
@@ -267,17 +303,20 @@
     // --- Interactive Features ---
     // 1. Random Teleporter
     const teleportCities = [
-        { name: "Paris", lngLat: [2.3522, 48.8566] },
         { name: "New York", lngLat: [-74.0060, 40.7128] },
+        { name: "Paris", lngLat: [2.3522, 48.8566] },
         { name: "Tokyo", lngLat: [139.6917, 35.6895] },
         { name: "Sydney", lngLat: [151.2093, -33.8688] },
         { name: "Rio de Janeiro", lngLat: [-43.1729, -22.9068] },
         { name: "Cape Town", lngLat: [18.4232, -33.9249] }
     ];
+    let teleportIndex = 0;
 
     document.getElementById('teleport-btn').addEventListener('click', () => {
         if (!map) return;
-        const target = teleportCities[Math.floor(Math.random() * teleportCities.length)];
+        teleportIndex += 1;
+        teleportIndex = teleportIndex === teleportCities.length ? 0 : teleportIndex;
+        const target = teleportCities[teleportIndex];
         statusText.innerText = `Teleporting to ${target.name}...`;
         map.flyTo({ center: target.lngLat, zoom: 12, duration: 0 });
     });
@@ -309,7 +348,10 @@
     // --- Core Listeners & Init ---
     connectBtn.addEventListener('click', () => fetchStyles(serverInput.value));
     serverInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') fetchStyles(serverInput.value); });
-    styleSelector.addEventListener('change', (e) => { if (e.target.value) applyStyle(e.target.value); });
+
+    // Listen to both Style and Language changes
+    styleSelector.addEventListener('change', applySelectedStyle);
+    langSelector.addEventListener('change', applySelectedStyle);
 
     // Auto-load if we have a URL from parameters or local storage
     if (serverInput.value) {
