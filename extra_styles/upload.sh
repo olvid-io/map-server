@@ -36,12 +36,10 @@ elif [ "$STYLE" = "all" ] ; then
   for style in `ls ./styles` ; do
     upload_style $style
   done
-  # Upload extra_styles.json if it exists
-  if [ -f "./extra_styles.json" ] ; then
-#    TODO where to store this
-    echo Uploading extra styles
-    upload_extra_styles
-  fi
+  echo Computing extra_styles.json
+  jq "[ .[] | .url |= sub(\"map.example.org\"; \"$SERVER_DIRECTORY\") ]" extra_styles.json > ./build/$SERVER_DIRECTORY/extra_styles.json
+  echo uploading extra_styles.json
+  s3cmd -c $S3_CFG sync ./build/$SERVER_DIRECTORY/extra_styles.json s3://${BUCKET_NAME}/extra_styles.json
 elif [ ! -d "./styles/$STYLE" ] ; then
   echo Invalid style name: $STYLE
   exit 1

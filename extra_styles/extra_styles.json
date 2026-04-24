@@ -1,1 +1,50 @@
-[{"id":"liberty","name":{"en":"Liberty","fr":"Liberté"},"url":"https://versatiles.dev.olvid.io/liberty/liberty[LANG].json"},{"id":"mt_basic","name":{"en":"Vintage","fr":"Vintage"},"url":"https://versatiles.dev.olvid.io/maptiler_basic/maptiler_basic[LANG].json"},{"id":"proto","name":{"en":"Modern","fr":"Moderne"},"url":"https://versatiles.dev.olvid.io/protomaps_light/protomaps_light[LANG].json"},{"id":"toner","name":{"en":"Black & white","fr":"Noir & blanc"},"url":"https://versatiles.dev.olvid.io/maptiler_toner/maptiler_toner[LANG].json"},{"id":"qwant","name":{"en":"Qwant Maps","fr":"Qwant Maps"},"url":"https://versatiles.dev.olvid.io/qwant/qwant[LANG].json"}]
+[
+  {
+  "id": "qwant",
+  "name": {
+    "en": "Qwant Maps",
+    "fr": "Qwant Maps"
+  },
+  "url": "https://map.example.org/qwant/qwant[LANG].json"
+  },
+  {
+    "id": "liberty",
+    "name": {
+      "en": "Liberty",
+      "fr": "Liberté"
+    },
+    "url": "https://map.example.org/liberty/liberty[LANG].json"
+  },
+  {
+    "id": "maptiler_basic",
+    "name": {
+      "en": "Vintage",
+      "fr": "Vintage"
+    },
+    "url": "https://map.example.org/maptiler_basic/maptiler_basic[LANG].json"
+  },
+  {
+    "id": "protomaps_light",
+    "name": {
+      "en": "Modern",
+      "fr": "Moderne"
+    },
+    "url": "https://map.example.org/protomaps_light/protomaps_light[LANG].json"
+  },
+  {
+    "id": "protomaps_dark",
+    "name": {
+      "en": "Modern Dark",
+      "fr": "Moderne Sombre"
+    },
+    "url": "https://map.example.org/protomaps_dark/protomaps_dark[LANG].json"
+  },
+  {
+    "id": "maptiler_toner",
+    "name": {
+      "en": "Black & white",
+      "fr": "Noir & blanc"
+    },
+    "url": "https://map.example.org/maptiler_toner/maptiler_toner[LANG].json"
+  }
+]

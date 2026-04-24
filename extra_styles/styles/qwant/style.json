@@ -12,16 +12,12 @@
 	"sources": {
 		"basemap": {
 			"type": "vector",
-			"tiles": ["https://versatiles.olvid.io/tiles/1774821600_osm/{z}/{x}/{y}"],
-			"scheme": "xyz",
 			"attribution": "<a href=\"https://about.qwant.com/fr/legal/cgu/qwant-maps/\" target=\"_blank\">Qwant Maps</a> <a href=\"http://www.openmaptiles.org/\" target=\"_blank\">&copy;&nbsp;OpenMapTiles</a> <a href=\"http://www.openstreetmap.org/about/\" target=\"_blank\">&copy;&nbsp;OpenStreetMap contributors</a>",
 			"minzoom": 0,
 			"maxzoom": 14
 		},
 		"poi": {
 			"type": "vector",
-			"tiles": ["https://versatiles.olvid.io/tiles/1774821600_osm/{z}/{x}/{y}"],
-			"scheme": "xyz",
 			"attribution": "<a href=\"https://about.qwant.com/fr/legal/cgu/qwant-maps/\" target=\"_blank\">Qwant Maps</a> <a href=\"http://www.openmaptiles.org/\" target=\"_blank\">&copy;&nbsp;OpenMapTiles</a> <a href=\"http://www.openstreetmap.org/about/\" target=\"_blank\">&copy;&nbsp;OpenStreetMap contributors</a>",
 			"minzoom": 0,
 			"maxzoom": 14

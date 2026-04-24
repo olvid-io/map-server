@@ -67,46 +67,7 @@ map.example.org {
 
 In order to use your custom map server inside Olvid, you need to expose it on the internet, in HTTPS, with a valid certificate that the Android OS will accept ([Let's Encrypt](https://letsencrypt.org/) certificates work very well). Then, configure Olvid to use this map server.
 
-You have two options:
-- **single map style**: you need to point Olvid directly to the URL of the JSON style file,
-- **multiple styles**: this lets you choose between different map styles directly within Olvid.
-
-### Configuring a multi-style Olvid JSON
-
-Multi-style Olvid JSON files have the following structure:
-```json
-[
- {"id": "colorful",
-  "name": {
-   "en": "Colorful",
-   "fr": "Coloré"
-  },
-  "url": "https://map.example.org/colorful[LANG].json"
- },
- {"id": "eclipse",
-  "name": {
-   "en": "Eclipse",
-   "fr": "Éclipse"
-  },
-  "url": "https://map.example.org/eclipse[LANG].json"
- },
- {"id": "satellite",
-  "name": {
-   "en": "Satellite",
-   "fr": "Satellite"
-  },
-  "url": "https://map.example.org/satellite[LANG].json"
- }
-]
-```
-
-This is a JSON list of object that each contain:
-- an `id` (mandatory): this is how Olvid internally identifies which style to use,
-- a `name` map (optional): this is how the different styles will be shown inside Olvid. If no `name` map is present, the `id` is used as a fallback,
-- the `url` of the style file. This url may contain `[LANG]` tag which is then replaced by the language used inside the app, restricted to languages present in the `name` map. In the example above, both `colorful_fr.json` and `colorful_en.json` styles must exist on the server. For users with a different language, `en` is used as a fallback. This allows having different localized maps depending on your language preference. Omit the `[LANG]` tag if you do not want to use localized maps.
-
 ### Configuring a custom map server within Olvid for Android
-
 Within Olvid you have the choice between different map providers:
 - OpenStreetMap, on servers operated by Olvid,
 - Google Maps,
@@ -115,7 +76,11 @@ Within Olvid you have the choice between different map providers:
 
 You can choose which provider to use by going into Olvid's: Settings > Location sharing > Integration with a map provider. This option can also be changed by long pressing a location you sent or received from a contact.
 
-When selecting custom OpenStreetMap you simply need to enter the URL of your single/multiple style JSON file and the next map you open in Olvid will use your custom style. If Olvid fails to load your style (typically, the wrong URL or a bad file format), an error message will be shown.
+When selecting custom OpenStreetMap you have two options, you can set:
+- **the multi-style Olvid JSON file url**: this lets you choose between different map styles directly within Olvid. This file is exposed at https://map.example.org/styles.json.
+- **a single map style url**: you need to point Olvid directly to the URL of the JSON style file, (eg: https://map.example.org/colorful.json)
+
+You simply need to enter the URL of your single/multiple style JSON file and the next map you open in Olvid will use your custom style. If Olvid fails to load your style (typically, the wrong URL or a bad file format), an error message will be shown.
 
 In order to easily configure your app, or to share your custom map server with friends, you can also generate a "setting URL" that allows to configure the map provider by scanning a QR code. Visit our [Settings generator](https://olvid.io/settings/) and simply enter your style url in Location sharing > Map provider integration.
 
@@ -129,8 +94,6 @@ You can check your server logs with `docker compose logs`.
 You can also open `./test/map.html` in any web-browser, enter your server public URL (eg: https://map.example.org) and browse your map.
 
 If you face issues in your Olvid application check your server exposes a `/styles.json` file. This list the URLS to the style files. Check JSON style files seems coherent, especially URLs in *sources*, *glyphs* and *sprite* sections.  
-
-[//]: # (TODO setup satellite )
 
 # 🙏 Acknowledgments
 

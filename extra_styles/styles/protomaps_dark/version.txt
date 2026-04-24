@@ -1,0 +1,4 @@
+# wget https://npm-style.protomaps.dev/style.json\?version\=5.7.2\&theme\=dark\&lang\=en --output-document=ligth_en.json
+# locale version is made manually from an english version where we replaced name:en with name :s
+
+5.7.2

@@ -95,3 +95,31 @@ CC_DOCKER_FIXED_CIDR_V6="true"
 CC_HEALTH_CHECK_PATH="/styles.json"
 CC_PREVENT_LOGSCOLLECTION=true
 ```
+
+## Custom Styles
+We can add more map styles, from different sources. See `extra_styles` directory.
+
+## Optional Setup
+You might need to allows CORS to your bucket for debugging purpose or to access pmtiles files directly.
+
+```bash
+<<eof cat >/tmp/cors.xml
+<CORSConfiguration>
+  <CORSRule>
+    <AllowedOrigin>console.clever-cloud.com</AllowedOrigin>
+    <AllowedMethod>PUT</AllowedMethod>
+    <AllowedMethod>POST</AllowedMethod>
+    <AllowedMethod>DELETE</AllowedMethod>
+    <AllowedHeader>*</AllowedHeader>
+    <ExposeHeader>ETag</ExposeHeader>
+  </CORSRule>
+  <CORSRule>
+    <AllowedOrigin>*</AllowedOrigin>
+    <AllowedMethod>GET</AllowedMethod>
+    <MaxAgeSeconds>3600</MaxAgeSeconds>
+  </CORSRule>
+</CORSConfiguration>
+eof
+
+s3cmd -c s3cfg -s setcors /tmp/cors.xml s3://$BUCKET_NAME
+```

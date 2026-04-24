@@ -15,7 +15,7 @@ Else the map will always display labels using local country language.
 ## Custom styles
 - STATIC_FILES: space separated list of local files to serve as static content. Must be compressed tar archive. (ex: `https://s3.example.org/qwant.tar`)
 - REMOTE_STATIC_FILES: space separated list of files to download and serve as static content. Must be compressed tar archive. (ex: `/data/qwant.tar`)
-- EXTRA_JSON_STYLES_FILE: extend /styles.json. Specify path to a local file containing a valid JSON styles list (ex: `[{"id":"id","url":"https://map.example.org/qwant.json""}]`)
+ - EXTRA_JSON_STYLES_FILE: extend /styles.json. Specify path to a local file containing a valid JSON styles list (ex: `[{"id":"id","url":"https://map.example.org/qwant.json""}]`)
 - EXTRA_JSON_STYLES_REMOTE_FILE: (overrides EXTRA_JSON_STYLES_FILE) extend /styles.json. Specify path to a remote file containing a valid JSON styles list
 
 ## Experimental variables
