@@ -85,6 +85,13 @@ You simply need to enter the URL of your single/multiple style JSON file and the
 
 In order to easily configure your app, or to share your custom map server with friends, you can also generate a "setting URL" that allows to configure the map provider by scanning a QR code. Visit our [Settings generator](https://olvid.io/settings/) and simply enter your style url in Location sharing > Map provider integration.
 
+### Disable address lookup
+
+For a privacy first setup we recommend to disable "Address Lookup" feature in Olvid's Settings: Settings > Location sharing > Disable Address Lookup.
+
+You can also set up your own [Pelias](https://github.com/pelias/documentation) instance but this is beyond the scope of this repository.
+For your information, to run our Pelias server on the entire planet, we use a bare metal server with 12 cores and 64 GB of RAM, and it took us several days of initial calculations.
+
 # ⚙️ Configuration
 ## Environment
 Environment variables used by `olvid/map-server` image are described in `./docker/README.md`.

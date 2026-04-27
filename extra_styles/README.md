@@ -7,6 +7,22 @@ This repo does not cover how to compute pmtiles files, but we mainly use [planet
 
 ## 🗺 Styles
 
+### TL;DR
+Update styles on clever cloud.
+```shell
+SERVER=map.example.org
+./build.sh https://${SERVER} all
+./upload.sh ${SERVER} all
+clever restart --app app_id
+```
+Update styles on docker server.
+```shell
+./build.sh https://${SERVER} all
+scp build/${SERVER}/* server:/[...]/data
+# restart server
+ssh docker compose restart map
+```
+
 ### Static files
 Each style is prepared as standalone tarball containing JSON style file and necessary assets (glyphs and fonts).
 
