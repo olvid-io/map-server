@@ -33,6 +33,7 @@ services:
       - ./data:/data:ro
     ports:
       - "127.0.0.1:8080:8080"
+    restart: unless-stopped
 ```
 
 ## Download tiles
