@@ -251,13 +251,19 @@
     }
 
     function updateStyleDropdown(styles) {
+        const previousStyle = localStorage.getItem("mapViewerLastStyle");
         styleSelector.innerHTML = '';
-        styles.forEach(jsonStyle => {
+        let selectedIndex = 0;
+        styles.forEach((jsonStyle, index) => {
             const opt = document.createElement('option');
             opt.value = jsonStyle.url;
             opt.textContent = typeof jsonStyle.name === 'object' ? (jsonStyle.name.en || jsonStyle.name.fr || jsonStyle.id) : (jsonStyle.name || jsonStyle.id);
+            if (opt.value === previousStyle) {
+                selectedIndex = index;
+            }
             styleSelector.appendChild(opt);
         });
+        styleSelector.selectedIndex = selectedIndex;
     }
 
     /**
@@ -266,6 +272,7 @@
     function applySelectedStyle() {
         const rawUrl = styleSelector.value;
         if (!rawUrl) return;
+        localStorage.setItem('mapViewerLastStyle', rawUrl);
 
         const langSuffix = langSelector.value;
         const finalUrl = rawUrl.replace("[LANG]", langSuffix);

@@ -4,7 +4,7 @@
     "protomaps": {
       "type": "vector",
       "minzoom": 0,
-      "maxzoom": 14
+      "maxzoom": 15
     }
   },
   "glyphs": "https://protomaps.github.io/basemaps-assets/fonts/{fontstack}/{range}.pbf",
@@ -2401,7 +2401,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -2524,7 +2524,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -2562,7 +2562,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -2625,7 +2625,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -2682,7 +2682,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -2747,7 +2747,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -2785,7 +2785,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -2823,7 +2823,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -2889,7 +2889,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -2927,7 +2927,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -2991,7 +2991,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -3029,7 +3029,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -3086,7 +3086,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -3124,7 +3124,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -3323,7 +3323,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -3446,7 +3446,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -3484,7 +3484,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -3547,7 +3547,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -3604,7 +3604,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -3669,7 +3669,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -3707,7 +3707,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -3745,7 +3745,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -3811,7 +3811,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -3849,7 +3849,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -3913,7 +3913,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -3951,7 +3951,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -4008,7 +4008,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -4046,7 +4046,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -4219,7 +4219,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -4342,7 +4342,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -4380,7 +4380,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -4443,7 +4443,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -4500,7 +4500,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -4565,7 +4565,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -4603,7 +4603,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -4641,7 +4641,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -4707,7 +4707,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -4745,7 +4745,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -4809,7 +4809,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -4847,7 +4847,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -4904,7 +4904,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -4942,7 +4942,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -5126,7 +5126,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -5249,7 +5249,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -5287,7 +5287,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -5350,7 +5350,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -5407,7 +5407,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -5472,7 +5472,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -5510,7 +5510,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -5548,7 +5548,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -5614,7 +5614,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -5652,7 +5652,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -5716,7 +5716,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -5754,7 +5754,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -5811,7 +5811,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -5849,7 +5849,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -6021,7 +6021,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -6144,7 +6144,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -6182,7 +6182,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -6245,7 +6245,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -6302,7 +6302,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -6367,7 +6367,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -6405,7 +6405,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -6443,7 +6443,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -6509,7 +6509,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -6547,7 +6547,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -6611,7 +6611,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -6649,7 +6649,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -6706,7 +6706,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -6744,7 +6744,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -7036,7 +7036,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -7159,7 +7159,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -7197,7 +7197,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -7260,7 +7260,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -7317,7 +7317,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -7382,7 +7382,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -7420,7 +7420,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -7458,7 +7458,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -7524,7 +7524,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -7562,7 +7562,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -7626,7 +7626,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -7664,7 +7664,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -7721,7 +7721,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -7759,7 +7759,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -8002,7 +8002,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -8125,7 +8125,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -8163,7 +8163,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -8226,7 +8226,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -8283,7 +8283,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -8348,7 +8348,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -8386,7 +8386,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -8424,7 +8424,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -8490,7 +8490,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -8528,7 +8528,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -8592,7 +8592,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -8630,7 +8630,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -8687,7 +8687,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -8725,7 +8725,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -9045,7 +9045,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -9168,7 +9168,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -9206,7 +9206,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -9269,7 +9269,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -9326,7 +9326,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -9391,7 +9391,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -9429,7 +9429,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -9467,7 +9467,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -9533,7 +9533,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -9571,7 +9571,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -9635,7 +9635,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -9673,7 +9673,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -9730,7 +9730,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -9768,7 +9768,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -9993,7 +9993,7 @@
                       [
                         "literal",
                         [
-                          "Noto-Sans-Devanagari Regular v1"
+                          "Noto-Sans-Devanagari-Regular-v1"
                         ]
                       ],
                       [
@@ -10116,7 +10116,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -10154,7 +10154,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -10217,7 +10217,7 @@
                       [
                         "literal",
                         [
-                          "Noto-Sans-Devanagari Regular v1"
+                          "Noto-Sans-Devanagari-Regular-v1"
                         ]
                       ],
                       [
@@ -10274,7 +10274,7 @@
                       [
                         "literal",
                         [
-                          "Noto-Sans-Devanagari Regular v1"
+                          "Noto-Sans-Devanagari-Regular-v1"
                         ]
                       ],
                       [
@@ -10339,7 +10339,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -10377,7 +10377,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -10415,7 +10415,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -10481,7 +10481,7 @@
                       [
                         "literal",
                         [
-                          "Noto-Sans-Devanagari Regular v1"
+                          "Noto-Sans-Devanagari-Regular-v1"
                         ]
                       ],
                       [
@@ -10519,7 +10519,7 @@
                       [
                         "literal",
                         [
-                          "Noto-Sans-Devanagari Regular v1"
+                          "Noto-Sans-Devanagari-Regular-v1"
                         ]
                       ],
                       [
@@ -10583,7 +10583,7 @@
                       [
                         "literal",
                         [
-                          "Noto-Sans-Devanagari Regular v1"
+                          "Noto-Sans-Devanagari-Regular-v1"
                         ]
                       ],
                       [
@@ -10621,7 +10621,7 @@
                       [
                         "literal",
                         [
-                          "Noto-Sans-Devanagari Regular v1"
+                          "Noto-Sans-Devanagari-Regular-v1"
                         ]
                       ],
                       [
@@ -10678,7 +10678,7 @@
                       [
                         "literal",
                         [
-                          "Noto-Sans-Devanagari Regular v1"
+                          "Noto-Sans-Devanagari-Regular-v1"
                         ]
                       ],
                       [
@@ -10716,7 +10716,7 @@
                       [
                         "literal",
                         [
-                          "Noto-Sans-Devanagari Regular v1"
+                          "Noto-Sans-Devanagari-Regular-v1"
                         ]
                       ],
                       [
@@ -10923,7 +10923,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -11046,7 +11046,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -11084,7 +11084,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -11147,7 +11147,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -11204,7 +11204,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -11269,7 +11269,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -11307,7 +11307,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -11345,7 +11345,7 @@
                   [
                     "literal",
                     [
-                      "Noto-Sans-Devanagari Regular v1"
+                      "Noto-Sans-Devanagari-Regular-v1"
                     ]
                   ],
                   [
@@ -11411,7 +11411,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -11449,7 +11449,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -11513,7 +11513,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -11551,7 +11551,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -11608,7 +11608,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
@@ -11646,7 +11646,7 @@
                     [
                       "literal",
                       [
-                        "Noto-Sans-Devanagari Regular v1"
+                        "Noto-Sans-Devanagari-Regular-v1"
                       ]
                     ],
                     [
